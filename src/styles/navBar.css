@@ -1,0 +1,30 @@
+nav {
+  background-color: #ffffff;
+  color: #1e1e2f;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #ddd;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+nav h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+nav h1 span {
+  color: #4e4eff;
+  font-weight: 600;
+}
+
+nav .mode {
+  font-size: 1rem;
+  background-color: #f1f1f7;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  color: #2a2a40;
+  border: 1px solid #4e4eff;
+}

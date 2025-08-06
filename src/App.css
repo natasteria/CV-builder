@@ -1,0 +1,25 @@
+/* App.css */
+body, html {
+  max-width: 90%;
+  margin: 0rem auto;
+  padding: 0;
+  background-color: #f5f6fa;
+  /* font-family: 'Segoe UI', sans-serif; */
+  color: #1e1e2f;
+  height: 100%;
+  
+}
+
+.app {
+  background-color: #f5f6fa;
+  padding-bottom: 2rem;
+  font-family: cursive;
+  font-size: 1.2rem;
+  background-color: #f9f9f9; /* optional lighter background */
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+/* .app > *:not(:first-child) {
+  margin-top: 2rem;
+} */

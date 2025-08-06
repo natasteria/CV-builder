@@ -1,0 +1,43 @@
+.cv-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background-color: white;
+  color: #000;
+  font-family: 'Times New Roman', Times, serif;
+  line-height: 1.6;
+  font-size: 16px;
+  border: 1px solid #ccc;
+}
+
+/* Header: personal info */
+.personalInfo {
+  text-align: right;
+  margin-bottom: 2rem;
+}
+
+.personalInfo p {
+  margin: 4px 0;
+  font-weight: 500;
+}
+
+/* Section titles */
+.cv-section-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #000;
+  padding-bottom: 4px;
+}
+
+/* Education & Practical sections */
+.educational-Background,
+.practical-Background {
+  margin-bottom: 1.5rem;
+}
+
+.educational-Background p,
+.practical-Background p {
+  margin: 4px 0;
+}
