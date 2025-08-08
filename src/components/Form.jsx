@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import '../styles/form.css'
+import Button from './Button'
 
-function InputFields({ title, inputFieldDetails }) {
+function InputFields({ title, onChange, inputFieldDetails}) {
   return (
     <div className="form-input">
       <h2>{title}</h2>
@@ -9,8 +11,8 @@ function InputFields({ title, inputFieldDetails }) {
           return (
             <div key={field.id}>
               <label htmlFor={field.id}>{field.label}: </label>
-              {field.type === "textarea" ? ( <textarea  id={field.id} name={field.id} placeholder={field.placeholder || ""}  rows="3" required/> ) : (
-              <input type={field.type} id={field.id} name={field.id} placeholder={field.placeholder || ""} required />
+              {field.type === "textarea" ? ( <textarea  id={field.id} name={field.id} placeholder={field.placeholder || ""}  rows="3" required onChange={onChange} value={field.value}/> ) : (
+              <input type={field.type} id={field.id} name={field.id} placeholder={field.placeholder || ""} required onChange={onChange} value={field.value}/>
             )}
             </div>
             
@@ -21,42 +23,44 @@ function InputFields({ title, inputFieldDetails }) {
   );
 }
 
-function Button({label}){
-    return (
-        <div className='button-container'>
-            <button>{label}</button>
-        </div>
-    )
-}
 
 
-function Form() {
+
+function Form({submitHandler, prevFieldData={} }) {
+  const [inputValues, setInputValues] = useState(prevFieldData);
+
+  function getUserEnteredValues(e){
+    const inputName = e.target.name;
+    const inputValue = e.target.value;
+    setInputValues(prev => ({...prev, [inputName]: inputValue}))
+  }
+
   return (
-    <div className='form-container'>
-      <InputFields title='General Information' inputFieldDetails={[
-        {label: "Name", type: "text", id:"name"}, 
-        {label: "Email", type: "email", id:"email", placeholder: "abc@gmail.com"},
-        {label: "Phone", type: "tel", id:"phone", placeholder: "0911223344 or +251911223344"}
+    <form className='form-container' onSubmit={(e) => submitHandler(e, inputValues)}>
+      <InputFields title='General Information' onChange={getUserEnteredValues} inputFieldDetails={[
+        {label: "Name", type: "text", id:"name", value: inputValues.name || ""}, 
+        {label: "Email", type: "email", id:"email", placeholder: "abc@gmail.com", value: inputValues.email || ""},
+        {label: "Phone", type: "tel", id:"phone", placeholder: "0911223344 or +251911223344", value: inputValues.phone || ""}
       ]} />
 
-        <InputFields title='Educational Background' inputFieldDetails={[
-        {label: "University", type: "text", id:"university"}, 
-        {label: "Title of Study", type: "text", id:"study-topic"},
-        {label: "Date of study", type: "date", id:"date-of-study"}
+        <InputFields title='Educational Background' onChange={getUserEnteredValues} inputFieldDetails={[
+        {label: "University", type: "text", id:"university", value: inputValues.university || ""}, 
+        {label: "Title of Study", type: "text", id:"studyTopic", value: inputValues.studyTopic || ""},
+        {label: "Date of study", type: "date", id:"dateOfStudy", value: inputValues.dateOfStudy || ""}
       ]} />
 
-        <InputFields title='Practical Background' inputFieldDetails={[
-        {label: "Company Name", type: "text", id:"company"}, 
-        {label: "Position Title", type: "text", id:"position-title"},
-        {label: "Main Responsibilties of Job", type: "textarea", id:"responsibiltes"},
-        {label: "Date From",  type: "date", id: "date-from"},
-        {label: "Date Until",  type: "date", id: "date-until"},
+        <InputFields title='Practical Background' onChange={getUserEnteredValues} inputFieldDetails={[
+        {label: "Company Name", type: "text", id:"companyName", value: inputValues.companyName || ""}, 
+        {label: "Position Title", type: "text", id:"positionTitle", value: inputValues.positionTitle || ""},
+        {label: "Main Responsibilties of Job", type: "textarea", id:"responsibiltes", value: inputValues.responsibiltes || ""},
+        {label: "Date From",  type: "date", id: "dateFrom", value: inputValues.dateFrom || ""},
+        {label: "Date Until",  type: "date", id: "dateUntil", value: inputValues.dateUntil || ""},
       ]} />
 
-      <Button label="Build CV"></Button>
+      <Button label="Build CV"  />
 
 
-    </div>
+    </form>
   )
 }
 

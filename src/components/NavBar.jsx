@@ -1,10 +1,10 @@
 import '../styles/navBar.css'
 
-function NavBar() {
+function NavBar({currentMode}) {
   return (
     <nav>
       <h1>CV <span>Builder</span></h1>
-      <p className='mode'>Current Mode: Edit</p>
+      <p className='mode'>Current Mode: {currentMode === 0 ? 'edit' : 'result'}</p>
     </nav>
   )
 }
