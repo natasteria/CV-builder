@@ -6,9 +6,9 @@ function CV({ name, email, phone, university, studyTopic, dateOfStudy, companyNa
     <div className="cv-container">
       <div className="personalInfo">
         <div className='section-title'>Personal</div>
-        <p>{name}</p>
-        <p>{email}</p>
-        <p>{phone}</p>
+        <p>Name: {name}</p>
+        <p>Email: {email}</p>
+        <p>Phone: {phone}</p>
         <p>{new Date().toLocaleDateString("en-US", {
             month: "long",
             day: "numeric",
@@ -18,17 +18,17 @@ function CV({ name, email, phone, university, studyTopic, dateOfStudy, companyNa
 
       <div className="educational-Background">
         <div className="section-title">Education</div>
-        <p>{university}</p>
-        <p>{studyTopic}</p>
-        <p>{dateOfStudy}</p>
+        <p>University: {university}</p>
+        <p>Title of Study: {studyTopic}</p>
+        <p>Completed Date: {dateOfStudy}</p>
       </div>
 
       <div className="practical-Background">
         <div className="section-title">Experience</div>
-        <p>{companyName}</p>
-        <p>{positionTitle}</p>
-        <p>{responsibiltes}</p>
-        <p>{dateFrom} - {dateUntil}</p>
+        <p>Company Name: {companyName}</p>
+        <p>Position Title: {positionTitle}</p>
+        <p>Main Responsibilities: {responsibiltes}</p>
+        <p>Date From: {dateFrom} - Date Until: {dateUntil}</p>
       </div>
 
       <Button label="Edit CV" onClick={editHandler} />
