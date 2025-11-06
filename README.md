@@ -3,8 +3,6 @@
 ## Project Overview
 This project is a web-based **CV builder** application developed as part of **The Odin Project's React Section**. The primary goal was to gain a practical understanding of fundamental React concepts, specifically **props** and **state**, through building a functional application.
 
----
-
 ## Key Learnings & Concepts 
 Developing this CV builder provided significant insights into core React concepts. Here are some of the key lessons learned during its creation:
 
@@ -45,4 +43,54 @@ Imagine your `index.html` file as a **physical stage** 🎭 that is never replac
 * **Preserving State (Advanced):** If you want an "actor" to stay backstage with their "props" ready so they don't lose anything when called back, you'd either:
     * Keep them mounted but hide them (e.g., using `display: none` CSS, which doesn't unmount the component).
     * **Move their state up to a parent component (lifting state up)** so that the state survives even if the child component is unmounted and re-mounted. This is often the preferred approach for managing shared or persistent state.
+
+## Tech Stack
+
+### Core Technologies
+* **React** (v19.1.0) - UI library for building component-based user interfaces
+* **React DOM** (v19.1.0) - React renderer for the web
+* **Vite** (v7.0.4) - Fast build tool and development server
+
+### Development Tools
+* **ESLint** (v9.30.1) - Code linting and quality assurance
+* **@vitejs/plugin-react** - Vite plugin for React support with Fast Refresh
+
+---
+
+## How to Run Locally
+
+### Prerequisites
+* **Node.js** (v14 or higher recommended)
+* **npm** (comes with Node.js) or **yarn**
+
+### Installation Steps
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd CV-builder
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open your browser**
+   - The application will be available at `http://localhost:5173` (or the port shown in your terminal)
+   - The page will automatically reload when you make changes to the source files
+
+### Available Scripts
+
+* `npm run dev` - Start the development server
+* `npm run build` - Build the project for production (outputs to `dist/` folder)
+* `npm run preview` - Preview the production build locally
+* `npm run lint` - Run ESLint to check for code quality issues
+
+---
 
